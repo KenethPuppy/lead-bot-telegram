@@ -57,6 +57,7 @@ async function leadProcess(conversation: MyConversation, ctx: MyContext): Promis
   } else {
     await ctx.reply(`Произошла ошибка! Попробуйте ещё раз!`)
   }
+
 }
 
 
@@ -64,7 +65,8 @@ const sendDataBitrix = async ({ name, phoneNumber, text, code }: SessionData): P
   try {
     const bitrixResult = await bitrix.leads.create({
       "NAME": name,
-      "PHONE": [ { "VALUE": phoneNumber, "VALUE_TYPE": "MOBILE" } ],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      "PHONE": [ { "VALUE": phoneNumber, "VALUE_TYPE": "MOBILE" } ] as any,
       "COMMENTS": text,
       "TITLE": code,
       "SOURCE_ID": "чат-бот"
