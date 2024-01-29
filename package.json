@@ -36,6 +36,11 @@
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "@2bad/bitrix": "^2.5.1",
+    "@grammyjs/conversations": "^1.2.0",
+    "@grammyjs/storage-free": "^2.4.1",
+    "dotenv": "^16.4.1",
+    "grammy": "^1.20.3",
     "tslib": "~2.6"
   },
   "volta": {
