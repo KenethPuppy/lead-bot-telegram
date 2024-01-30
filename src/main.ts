@@ -11,7 +11,7 @@ import { freeStorage } from "@grammyjs/storage-free";
 import { SessionData } from "./types.js";
 import path from 'path';
 import {fileURLToPath} from 'url';
-import { http } from 'http'
+import http from 'http'
 
 const server = http.createServer();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
