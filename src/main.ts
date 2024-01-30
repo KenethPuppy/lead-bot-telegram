@@ -14,6 +14,7 @@ import {fileURLToPath} from 'url';
 import http from 'http'
 
 const server = http.createServer((req, res) => {
+  console.log(req.statusCode)
   res.end('Hello!')
 });
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
