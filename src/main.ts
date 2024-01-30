@@ -9,18 +9,14 @@ import * as dotenv from 'dotenv'
 import { Bitrix } from '@2bad/bitrix'
 import { freeStorage } from "@grammyjs/storage-free";
 import { SessionData } from "./types.js";
-import path from 'path';
-import {fileURLToPath} from 'url';
 import http from 'http'
 
 const server = http.createServer((req, res) => {
   console.log(req.statusCode)
   res.end('Hello!')
 });
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-dotenv.config({
-  "path": __dirname + '/.env'
-})
+
+dotenv.config({})
 
 const bitrix = Bitrix(process.env.WEBHOOK_BITRIX)
 
@@ -67,7 +63,7 @@ async function leadProcess(conversation: MyConversation, ctx: MyContext): Promis
 
 const sendDataBitrix = async ({ name, phoneNumber, text, code }: SessionData): Promise<boolean> => {
   try {
-    const bitrixResult = await bitrix.leads.create({
+    await bitrix.leads.create({
       "NAME": name,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       "PHONE": [ { "VALUE": phoneNumber, "VALUE_TYPE": "MOBILE" } ] as any,
@@ -75,7 +71,6 @@ const sendDataBitrix = async ({ name, phoneNumber, text, code }: SessionData): P
       "TITLE": code,
       "SOURCE_ID": "чат-бот"
     })
-    console.log(bitrixResult)
     return true
   } catch (error) {
     console.log("Произошла ошибка!")
