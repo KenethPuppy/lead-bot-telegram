@@ -69,7 +69,8 @@ const sendDataBitrix = async ({ name, phoneNumber, text, code }: SessionData): P
       "PHONE": [ { "VALUE": phoneNumber, "VALUE_TYPE": "MOBILE" } ] as any,
       "COMMENTS": text,
       "TITLE": code,
-      "SOURCE_ID": "чат-бот"
+      "SOURCE_ID": "чат-бот",
+      "ASSIGNED_BY_ID": process.env.ASSIGNED_BY_ID
     })
     return true
   } catch (error) {
