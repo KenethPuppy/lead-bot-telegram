@@ -70,7 +70,8 @@ const sendDataBitrix = async ({ name, phoneNumber, text, code }: SessionData): P
       "COMMENTS": text,
       "TITLE": code,
       "SOURCE_ID": "чат-бот",
-      "ASSIGNED_BY_ID": process.env.ASSIGNED_BY_ID
+      "ASSIGNED_BY_ID": process.env.ASSIGNED_BY_ID,
+      "UF_CRM_1568642840": code
     })
     return true
   } catch (error) {
